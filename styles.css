@@ -1,1 +1,59 @@
-/*  your css code here. If applicable */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#head {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.player-row label {
+  min-width: 70px;
+  font-weight: bold;
+}
+
+.player-row input {
+  padding: 5px;
+}
+
+#startBtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background-color: #45a049;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+	justify-content:center;
+}
+
+.cell {
+  background-color: pink;
+  border: 1px solid black;
+}
