@@ -6,7 +6,6 @@ body {
 
 #head {
   text-align: center;
-  font-family: Arial, sans-serif;
 }
 
 .container {
@@ -32,7 +31,7 @@ body {
   padding: 5px;
 }
 
-#startBtn {
+#submit {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -42,7 +41,7 @@ body {
   cursor: pointer;
 }
 
-#startBtn:hover {
+#submit:hover {
   background-color: #45a049;
 }
 
@@ -52,7 +51,13 @@ body {
   grid-template-rows: repeat(3, 100px);
 	justify-content:center;
 }
-
+.message{
+	text-align:center;
+	margin-bottom:10px;
+}
+#game>h1{
+	text-align:center;
+}
 .cell {
   background-color: pink;
   border: 1px solid black;

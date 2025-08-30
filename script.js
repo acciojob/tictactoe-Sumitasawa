@@ -1,18 +1,18 @@
-const startBtn = document.getElementById("startBtn");
+const startBtn = document.getElementById("submit");
 const container = document.querySelector(".container");
 const game = document.getElementById("game");
-const turnMsg = document.getElementById("turnMsg");
+const turnMsg = document.querySelector(".message");
 const cells = document.querySelectorAll(".cell");
-
+const heading=document.getElementById("head");
 let player1 = "";
 let player2 = "";
 let currentPlayer = "";
-let currentMark = ""; // X or O
+let currentMark = ""; 
 let board = Array(9).fill(null); // Track moves
 
 startBtn.addEventListener("click", () => {
-  player1 = document.getElementById("player1").value.trim();
-  player2 = document.getElementById("player2").value.trim();
+  player1 = document.getElementById("player-1").value.trim();
+  player2 = document.getElementById("player-2").value.trim();
 
   if (!player1 || !player2) {
     alert("Please enter both player names");
@@ -22,29 +22,27 @@ startBtn.addEventListener("click", () => {
   currentPlayer = player1;
   currentMark = "X";
 
+	head.style.display="none";
   container.style.display = "none";
   game.style.display = "block";
 
   turnMsg.textContent = `${currentPlayer}, you're up`;
 });
 
-// Handle clicks on cells
 cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
-    // If cell already has mark, ignore
     if (cell.textContent !== "" || checkWinner()) return;
 
-    // Place mark and update board
+  
     cell.textContent = currentMark;
     board[index] = currentMark;
 
-    // Check if game won
     if (checkWinner()) {
       turnMsg.textContent = `${currentPlayer} wins! 🎉`;
       return;
     }
 
-    // Check for draw
+ 
     if (board.every(square => square !== null)) {
       turnMsg.textContent = `It's a draw! 🤝`;
       return;
@@ -63,7 +61,6 @@ cells.forEach((cell, index) => {
   });
 });
 
-// Winning combinations
 const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
