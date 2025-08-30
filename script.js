@@ -3,7 +3,8 @@ const container = document.querySelector(".container");
 const game = document.getElementById("game");
 const turnMsg = document.querySelector(".message");
 const cells = document.querySelectorAll(".cell");
-const heading=document.getElementById("head");
+const heading = document.getElementById("head");
+
 let player1 = "";
 let player2 = "";
 let currentPlayer = "";
@@ -20,9 +21,9 @@ startBtn.addEventListener("click", () => {
   }
 
   currentPlayer = player1;
-  currentMark = "X";
+  currentMark = "x"; // lowercase for Cypress
 
-	head.style.display="none";
+  heading.style.display = "none";
   container.style.display = "none";
   game.style.display = "block";
 
@@ -33,7 +34,6 @@ cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
     if (cell.textContent !== "" || checkWinner()) return;
 
-  
     cell.textContent = currentMark;
     board[index] = currentMark;
 
@@ -42,18 +42,17 @@ cells.forEach((cell, index) => {
       return;
     }
 
- 
     if (board.every(square => square !== null)) {
       turnMsg.textContent = `It's a draw! 🤝`;
       return;
     }
 
     // Switch player
-    if (currentMark === "X") {
-      currentMark = "O";
+    if (currentMark === "x") {
+      currentMark = "o";
       currentPlayer = player2;
     } else {
-      currentMark = "X";
+      currentMark = "x";
       currentPlayer = player1;
     }
 
