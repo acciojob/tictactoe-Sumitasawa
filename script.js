@@ -37,10 +37,10 @@ cells.forEach((cell, index) => {
     cell.textContent = currentMark;
     board[index] = currentMark;
 
-    if (checkWinner()) {
-      turnMsg.textContent = `${currentPlayer} wins! 🎉`;
-      return;
-    }
+  if (checkWinner()) {
+  turnMsg.textContent = `${currentPlayer} congratulations you won!`;
+  return;
+}
 
     if (board.every(square => square !== null)) {
       turnMsg.textContent = `It's a draw! 🤝`;
